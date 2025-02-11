@@ -72,23 +72,25 @@ for package in "${packages[@]}"; do
 	pacman -S --noconfirm $package
 done
 
+# enable networkmanager
+systemctl enable NetworkManager
+
 # create mountpoints
 mkdir -p /mnt/usb
 
 # set sudo
 cp sudoers /etc/sudoers
 
-# switch to user
-su "$username"
-
 # load config files
-
-cp -r config ~/.config   
-cp bashrc ~/.bashrc
-
-# remind BOOTLOADER
-prinf "\nMAKE SURE YOU SET UP BOOTLOADER\n"
+cp -r config "/home/$username/.config"
+chown -R "$username" "/home/$username/.config/*"
+cp bashrc "/home/$username/.bashrc"
+chown "$username" "/home/$username/.bashrc"
 
 # git details
 git config --global user.email "fell@fellsedge.com"
 git config --global user.name "FellsEdge"
+
+# remind BOOTLOADER
+printf "\nUpdate ~/.config/sway/config with current touchpad name. This will enable natural scrolling\n"
+printf "\nMAKE SURE YOU SET UP BOOTLOADER\n"
