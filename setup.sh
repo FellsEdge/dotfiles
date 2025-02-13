@@ -48,6 +48,7 @@ packages=(
 	"sway"
 	"swaybg"
 	"waybar"
+ 	"wl-clipboard"
 	"fuzzel"
 	"ttf-font-awesome"
 	"networkmanager"
