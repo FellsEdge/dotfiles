@@ -61,6 +61,7 @@ packages=(
 	"git"
 	"firefox"
 	"base-devel"
+ 	"clang"
 	"man-db"
 	"efibootmgr"
 )
